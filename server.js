@@ -1,14 +1,11 @@
 const clone = require("clone");
-const data = require("./db.json");
+const data = require("./database.json");
 const jsonServer = require("json-server");
-const jwt = require("jsonwebtoken");
 
 const isProductionEnv = process.env.NODE_ENV === "production";
 
 const server = jsonServer.create();
 const PORT = Number(process.env.PORT) || 3000;
-const SECRET_KEY = process.env.JWT_SECRET || "123456789";
-const TOKEN_EXPIRATION = process.env.JWT_EXPIRES_IN || "1m";
 
 // For mocking the POST request, POST request won't make any changes to the DB in production environment
 const router = jsonServer.router(
@@ -27,47 +24,6 @@ if (isProductionEnv) {
     next();
   });
 }
-
-// Create a token from a payload
-function createToken(payload) {
-  return jwt.sign(payload, SECRET_KEY, { expiresIn: TOKEN_EXPIRATION });
-}
-
-// Verify the token
-function verifyToken(token) {
-  return jwt.verify(token, SECRET_KEY);
-}
-
-// Check if the user exists in database
-function isAuthenticated({ email, password }) {
-  return router.db
-    .get("users")
-    .some((user) => user.email === email && user.password === password)
-    .value();
-}
-
-server.post("/login", (req, res) => {
-  const { email, password } = req.body;
-  if (!isAuthenticated({ email, password })) {
-    const status = 401;
-    const message = "Incorrect username or password";
-    res.status(status).json({ status, message });
-    return;
-  }
-  const accessToken = createToken({ email });
-  res.status(200).json({ accessToken });
-});
-
-server.post("/users", (req, res) => {
-  const { email, password } = req.body;
-  if (email && password) {
-    res.status(200).json({ message: `User created: ${email}` });
-  } else {
-    res
-      .status(400)
-      .json({ message: `Create failed: Email and password required` });
-  }
-});
 
 server.get("/product/:id", (req, res) => {
   const id = req.params.id;
@@ -164,54 +120,10 @@ server.post("/checkout", (req, res) => {
   }
 });
 
-server.use((req, res, next) => {
-  if (req.method === "POST") {
-    const { authorization } = req.headers;
-    if (authorization) {
-      const [scheme, token] = authorization.split(" ");
-      if (scheme === "Bearer" && token) {
-        try {
-          req.claims = verifyToken(token);
-          req.body.userId = req.claims.email;
-        } catch (err) {
-          const status = 401;
-          return res.status(status).json({ status, message: err.message });
-        }
-      }
-    }
-
-    req.body.createdAt = Date.now();
-  }
-
-  // Continue to JSON Server router
-  next();
-});
-
-server.use(/^(?!\/auth).*$/, (req, res, next) => {
-  if (
-    req.headers.authorization === undefined ||
-    req.headers.authorization.split(" ")[0] !== "Bearer"
-  ) {
-    const status = 401;
-    const message = "Error in authorization format";
-    res.status(status).json({ status, message });
-    return;
-  }
-
-  try {
-    verifyToken(req.headers.authorization.split(" ")[1]);
-    next();
-  } catch (err) {
-    const status = 401;
-    const message = err.message;
-    res.status(status).json({ status, message });
-  }
-});
-
 server.use(router);
 
 server.listen(PORT, () => {
-  console.log(`Run Auth API Server on port ${PORT}`);
+  console.log(`Run WDD330 API Server on port ${PORT}`);
 });
 
 module.exports = server;
