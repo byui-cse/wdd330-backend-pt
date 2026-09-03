@@ -1,11 +1,11 @@
 {
-  "name": "wdd330-backend",
+  "name": "wdd330-backend-pt",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "servidor.js",
   "scripts": {
-    "vercel": "node server.js",
-    "start": "node server.js"
+    "vercel": "node servidor.js",
+    "start": "node servidor.js"
   },
   "author": "Shane Thompson",
   "license": "ISC",

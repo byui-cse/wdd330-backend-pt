@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A API de produtos e finalização de compra do projeto WDD 330 Acampar." />
+  <title>Serviço de API WDD 330</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      background: #10231f;
+      color: #f4f0e6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      min-height: 100svh;
+    }
+
+    main {
+      display: grid;
+      min-height: 100svh;
+      place-items: center;
+      padding: 1.5rem;
+    }
+
+    .painel {
+      width: min(100%, 38rem);
+      padding: clamp(2rem, 8vw, 4.5rem);
+      border: 1px solid rgb(244 240 230 / 20%);
+      border-radius: 0.75rem;
+      background: #19352e;
+      box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 24%);
+      text-align: center;
+    }
+
+    .rotulo {
+      margin: 0 0 1rem;
+      color: #f2a65a;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.23em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgb(242 166 90 / 20%);
+    }
+
+    h1 {
+      margin: 0;
+      color: #fffaf0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.25rem, 8vw, 4.75rem);
+      font-weight: 400;
+      line-height: 0.98;
+    }
+
+    h1::after {
+      content: "🏕️";
+      margin-left: 2.5rem;
+    }
+
+    .descricao {
+      max-width: 35rem;
+      margin: 1.5rem auto 0;
+      color: #c7d4cb;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.6;
+    }
+
+    .situacao {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin: 2rem 0 0;
+      color: #f4f0e6;
+      font-size: 0.875rem;
+    }
+
+    .situacao::before {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: #8fc9a3;
+      box-shadow: 0 0 0 0.25rem rgb(143 201 163 / 14%);
+      content: "";
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section class="painel" aria-labelledby="titulo-servico">
+      <p class="rotulo">Serviço de backend WDD 330</p>
+      <h1 id="titulo-servico">API do Acampar</h1>
+      <p class="descricao">
+        Catálogo de produtos, finalização de compra e recursos de imagem locais
+        para os projetos WDD 330 Acampar.
+      </p>
+      <p class="situacao">Endpoint do serviço pronto</p>
+    </section>
+  </main>
+</body>
+
+</html>

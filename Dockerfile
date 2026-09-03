@@ -1,19 +1,19 @@
 FROM node:14
 
-# Create app directory
+# Cria o diretório da aplicação
 WORKDIR /usr/src/app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
+# Instala as dependências da aplicação
+# Um curinga é usado para garantir que tanto package.json quanto package-lock.json sejam copiados
+# quando disponíveis (npm@5+)
 COPY package*.json ./
 
 RUN npm install
-# If you are building your code for production
+# Se você estiver compilando o código para produção
 # RUN npm ci --only=production
 
-# Bundle app source
+# Empacota o código-fonte da aplicação
 COPY . .
 
 EXPOSE 3000
-CMD [ "node", "server.js" ]
+CMD [ "node", "servidor.js" ]

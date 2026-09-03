@@ -1,11 +1,11 @@
-# Dependencies
+# Dependências
 node_modules/
 
-# Environment files
+# Arquivos de ambiente
 .env
 .env.test
 
-# Logs and runtime output
+# Logs e saída de execução
 logs/
 *.log
 *.pid
@@ -13,11 +13,11 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Test coverage
+# Cobertura de testes
 coverage/
 .nyc_output/
 *.lcov
 
-# Local development files
+# Arquivos de desenvolvimento local
 .DS_Store
 .vercel/
