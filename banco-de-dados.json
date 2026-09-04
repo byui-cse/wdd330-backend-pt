@@ -1,56 +1,56 @@
 {
   "users": [
     {
-      "email": "user1@email.com",
-      "password": "user1",
-      "firstname": "Test",
-      "lastname": "User",
-      "age": 20,
+      "email": "ana.silva@gmail.com",
+      "password": "ana123",
+      "firstname": "Ana",
+      "lastname": "Silva",
+      "age": 27,
       "id": 1
     },
     {
       "id": 2,
-      "username": "user2",
-      "email": "user2@email.com",
-      "password": "user2"
+      "username": "carlosmendes",
+      "email": "carlos.mendes@hotmail.com",
+      "password": "carlos456"
     },
     {
-      "email": "user3@email.com",
-      "password": "user3",
+      "email": "juliana.oliveira@outlook.com.br",
+      "password": "juliana789",
       "id": 3
     }
   ],
   "posts": [
     {
-      "title": "First Post!",
-      "content": "I can't believe I got first post.",
+      "title": "Primeiro post!",
+      "content": "Não acredito que consegui ser a primeira a postar aqui.",
       "userId": 1,
       "id": 4
     },
     {
-      "title": "First Post!",
-      "content": "Woot! I never get first post!",
+      "title": "Chegando agora!",
+      "content": "Nossa, nunca sou o primeiro a postar, hoje é meu dia de sorte!",
       "userId": 2,
       "id": 5
     },
     {
-      "title": "First Post!",
-      "content": "Did I really get first?",
+      "title": "Será que fui o primeiro?",
+      "content": "Cheguei bem na hora, será que ninguém postou antes de mim?",
       "userId": "3",
       "createdAt": 1558736105449,
       "id": 8
     },
     {
-      "title": "post 5",
-      "content": "post 5",
-      "userId": "user1@email.com",
+      "title": "Dicas de acampamento para o inverno",
+      "content": "Separei aqui os itens essenciais para quem vai acampar na serra neste inverno.",
+      "userId": "ana.silva@gmail.com",
       "createdAt": 1559159434900,
       "id": 11
     },
     {
-      "title": "post 6",
-      "content": "post 6",
-      "userId": "user1@email.com",
+      "title": "Trilha na Chapada Diamantina",
+      "content": "Voltei da trilha e já estou planejando a próxima aventura, foi incrível!",
+      "userId": "ana.silva@gmail.com",
       "createdAt": 1559159640285,
       "id": 12
     }
