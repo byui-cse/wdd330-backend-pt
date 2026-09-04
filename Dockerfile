@@ -16,4 +16,4 @@ RUN npm install
 COPY . .
 
 EXPOSE 3000
-CMD [ "node", "servidor.js" ]
+CMD [ "node", "server.js" ]
